@@ -1,0 +1,19 @@
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  border-bottom: 5px solid #02b3e4;
+}
+
+.main-pic {
+  padding-top: 10px;
+}

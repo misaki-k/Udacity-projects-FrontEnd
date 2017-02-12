@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#02b3e4">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--I have to change the image jpg to png -->
+    <!--
+    <link rel="shortcut icon" type="image/png" href="./image/logo.png">
+    -->
+<!-- .svg, .png or .ico images are recommended because they support transparency, useful for displaying logo / round icons -->
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>My Portfolio</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="row">
+        <div class="col-md-6">
+          <img src="./image/logo.jpg" class="img-responsive logo" alt="Responsive image">
+        </div>
+        <div class="col-md-6 text-right text-uppercase">
+          <h1>Misaki Kawaoka</h1>
+          <h3>Front-end Ninja</h3>
+        </div>
+     </header>
+     <figure class="row">
+       <div class="col-md-12 main-pic">
+         <img src="./image/picture_one.jpg" class="img-responsive center-block" alt="Responsive image">
+       </div>
+    </figure>
+    <section class="row">
+      <div class="col-md-12">
+        <h2>My favorite animals</h2>
+      </div>
+    </section>
+    <main class="row text-center">
+      <article class="col-md-6">
+        <img src="./image/picture_two.jpg" class="img-responsive center-block" alt="Responsive image" data-toggle="modal" data-target="#project1">
+        <h3>Dog</h3>
+        <p><a href="http://github.com/" target="_blank">Link to github</a></p>
+      </article>
+      <article class="col-md-6">
+        <img src="./image/picture_three.jpg" class="img-responsive center-block" alt="Responsive image" data-toggle="modal" data-target="#project2">
+        <h3>Dog</h3>
+        <p><a href="http://github.com/" target="_blank">Link to github</a></p>
+      </article>
+    </main>
+    <main class="row text-center">
+      <article class="col-md-6">
+        <img src="./image/picture_four.jpg" class="img-responsive center-block" alt="Responsive image" data-toggle="modal" data-target="#project3">
+        <h3>Dog</h3>
+        <p><a href="http://github.com/" target="_blank">Link to github</a></p>
+      </article>
+      <article class="col-md-6">
+        <img src="./image/picture_two.jpg" class="img-responsive center-block" alt="Responsive image" data-toggle="modal" data-target="#project4">
+        <h3>Dog</h3>
+        <p><a href="http://github.com/" target="_blank">Link to github</a></p>
+      </article>
+    </main>
+  </div>
+  <!--Modal-->
+  <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Dog</h4>
+              </div>
+              <div class="modal-body">
+                  <img class="img-responsive center-block" src="./image/picture_two.jpg" alt="Dog">
+                  <p>A cute picture of a dog!!</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="project2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel2">Dog</h4>
+              </div>
+              <div class="modal-body">
+                  <img class="img-responsive center-block" src="./image/picture_three.jpg" alt="Dog">
+                  <p>Another cute picture of a dog!</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="project3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel3">Dog</h4>
+              </div>
+              <div class="modal-body">
+                  <img class="img-responsive center-block" src="./image/picture_four.jpg" alt="Dog">
+                  <p>I am a dog lover!! I have three dogs!!</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" id="project4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel4">Dog</h4>
+              </div>
+              <div class="modal-body">
+                  <img class="img-responsive center-block" src="./image/picture_two.jpg" alt="Dog">
+                  <p>This picture again! Isn't he cute?! I was trying to use my dogs' pictures, but I didn't know how I could change the size or trim the pics!</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</body></html>
