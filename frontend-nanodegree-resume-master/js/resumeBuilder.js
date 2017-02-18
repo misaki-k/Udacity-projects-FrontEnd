@@ -5,16 +5,16 @@ This is empty on purpose! Your code to build the resume will go here.
 var work = {
   "jobs" : [
     {
-      "employer" : "ECC Junior",
+      "employer" : "UNKNOWN",
       "title" : "Owner-manager",
-      "location" : "Tokai City, Japan",
+      "location" : "Japan",
       "dates" : "2014-2016",
       "description" : "I teach English to kids and also manage my cramschool!"
     },
     {
-      "employer" : "ECC Junior",
+      "employer" : "UNKNOWN",
       "title" : "English Teacher",
-      "location" : "Tokai City, Japan",
+      "location" : "Japan",
       "dates" : "2016-Now",
       "description" : "I teach English to kids!"
     }
@@ -117,11 +117,11 @@ bio.display = function() {
 var education = {
   "schools" : [
     {
-      "name" : "Meiji",
+      "name" : "UNKNOWN",
       "location" : "Tokyo, Japan",
       "degree" : "Bachelor",
       "dates" : "2010-2014",
-      "url" : "meijiunversity.co.jp",
+      "url" : "unversity.co.jp",
       "majors": ["English Literature", "American Literature"]
     }
   ],
