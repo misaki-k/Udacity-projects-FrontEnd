@@ -39,6 +39,10 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.render =function() {
+  if(left) this.x -= speed;
+  if(up) this.y = this.y -= speed;
+  if(right) this.x = this.x += speed;
+  if(down) this.y = this.y += speed;
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
