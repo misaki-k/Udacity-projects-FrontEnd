@@ -39,10 +39,10 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.render =function() {
-  if(left) this.x -= speed;
-  if(up) this.y = this.y -= speed;
-  if(right) this.x = this.x += speed;
-  if(down) this.y = this.y += speed;
+  if(left) this.x -= 83;
+  if(up) this.y = this.y -= 101;
+  if(right) this.x = this.x += 83;
+  if(down) this.y = this.y += 101;
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -54,9 +54,9 @@ Player.prototype.render =function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 //var enemy = new Enemy(0, 150, 100);  start at x=0, y=150, speed = 100
-var allEnemies = [new Enemy(0, 150, 100), new Enemy(0, 100, 100), new Enemy(0,200, 50)];
+var allEnemies = [new Enemy(0, 124.5, 100), new Enemy(0, 207.5, 100), new Enemy(0,290.5, 50)];
 
-var player = new Player(150, 150);
+var player = new Player(252.5, 456.5);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
