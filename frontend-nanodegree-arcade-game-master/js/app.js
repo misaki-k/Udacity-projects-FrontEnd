@@ -18,7 +18,9 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x = this.x + speed * dt;
+    this.x = this.x + this.speed * dt;
+    //console.log(this);
+    //collide function needed
 };
 
 // Draw the enemy on the screen, required method for game
@@ -28,35 +30,81 @@ Enemy.prototype.render = function() {
 
 // Now write your own player class
 var Player = function(x, y) {
-  Enemy.call(this, x, y);
-  Player.prototype = Object.create(Enemy.prototype);
-  Player.prototype.constructor = Player;
+  this.x = x;
+  this.y = y;
+  //Enemy.call(this, x, y);
+  //Player.prototype = Object.create(Enemy.prototype);
+  //Player.prototype.constructor = Player;
   this.sprite = "images/char-boy.png";
-}
+};
 Player.prototype.update = function(dt) {
-  this.x = this.x + dt;
-  this.y = this.y + dt;
+  //this.x = this.x;
+  //this.y = this.y;
 };
 
 Player.prototype.render =function() {
-  if(left) this.x -= 83;
-  if(up) this.y = this.y -= 101;
-  if(right) this.x = this.x += 83;
-  if(down) this.y = this.y += 101;
+  //if(left) this.x -= 83;
+  //if(up) this.y = this.y -= 101;
+  //if(right) this.x = this.x += 83;
+  //if(down) this.y = this.y += 101;
+
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+Player.prototype.handleInput = function(key) {
+  //console.log("handleInput");
+  //console.log(key);
+    
+  switch (key) {
+    case "left":
+      this.x -= 101;
+      break;
+    case "up":
+      this.y -= 83;
+      break;
+    case "right":
+      this.x += 101;
+      break;
+    case "down":
+      this.y += 83;
+      break;
+    default:
+      console.log("Sorry, we are out of " + key + ".");
+  };
 };
 
 // This class requires an update(), render() and
 // a handleInput() method.
 
+var resetPlayer = function(){
+//var rect1 = {x: 5, y: 5, width: 50, height: 50}
+//var rect2 = {x: 20, y: 10, width: 10, height: 10}
+
+//if (rect1.x < rect2.x + rect2.width &&
+//   rect1.x + rect1.width > rect2.x &&
+//   rect1.y < rect2.y + rect2.height &&
+//   rect1.height + rect1.y > rect2.y) {
+    // collision detected!
+ // };
+ for(e = 0; allEnemies[e] < allEnemies.length; e++) {
+   if(player.x < allEnemies[e].x + allEnemies[e].width &&
+     player.x + player.width > allEnemies[e].x &&
+     player.y < allEnemies[e].y + allEnemies[e].height &&
+     player.height + player.y > player.y > allEnemies[e].y){
+       player.x = 200;
+       player.y = 375;
+       return player;
+     };
+   };
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-//var enemy = new Enemy(0, 150, 100);  start at x=0, y=150, speed = 100
-var allEnemies = [new Enemy(0, 124.5, 100), new Enemy(0, 207.5, 100), new Enemy(0,290.5, 50)];
+//var enemy = new Enemy(0, 150, 100);  start at x = 0, y = 150, speed = 100
+var allEnemies = [new Enemy(0, 124.5, 100), new Enemy(0, 207.5, 100), new Enemy(0, 41.5, 50)];
 
-var player = new Player(252.5, 456.5);
+var player = new Player(200, 375);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
