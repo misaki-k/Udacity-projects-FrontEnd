@@ -21,10 +21,8 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + this.speed * dt;
     //console.log(this);
     //collide function needed
-    Player.height = 171;
-    Player.width = 101;
-    Enemy.height = 171;
-    Enemy.width = 101;
+    this.height = 171;
+    this.width = 101;
   //var rect1 = {x: 5, y: 5, width: 50, height: 50}
   //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -55,6 +53,8 @@ Enemy.prototype.render = function() {
 var Player = function(x, y) {
   this.x = x;
   this.y = y;
+  this.height = 171;
+  this.width = 101;
   //Enemy.call(this, x, y);
   //Player.prototype = Object.create(Enemy.prototype);
   //Player.prototype.constructor = Player;
