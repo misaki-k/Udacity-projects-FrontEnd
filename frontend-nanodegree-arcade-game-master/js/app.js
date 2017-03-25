@@ -21,6 +21,29 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + this.speed * dt;
     //console.log(this);
     //collide function needed
+     Player.height = 171;
+     Player.width = 101;
+     Enemy.height = 171;
+     Enemy.width = 101;
+//var rect1 = {x: 5, y: 5, width: 50, height: 50}
+//var rect2 = {x: 20, y: 10, width: 10, height: 10}
+
+//if (rect1.x < rect2.x + rect2.width &&
+//   rect1.x + rect1.width > rect2.x &&
+//   rect1.y < rect2.y + rect2.height &&
+//   rect1.height + rect1.y > rect2.y) {
+    // collision detected!
+ // };
+    for(e = 0; allEnemies[e] < allEnemies.length; e++) {
+     if(player.x < allEnemies[e].x + allEnemies[e].width &&
+       player.x + player.width > allEnemies[e].x &&
+       player.y < allEnemies[e].y + allEnemies[e].height &&
+       player.height + player.y > player.y > allEnemies[e].y){
+         player.x = 200;
+         player.y = 375;
+         return player;
+     };
+   };
 };
 
 // Draw the enemy on the screen, required method for game
@@ -193,11 +216,11 @@ Player.prototype.handleInput = function(key) {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var resetPlayer = function(){
-  Player.height = 171;
-  Player.width = 101;
-  Enemy.height = 171;
-  Enemy.width = 101;
+//var resetPlayer = function(){
+ // Player.height = 171;
+ // Player.width = 101;
+ // Enemy.height = 171;
+ // Enemy.width = 101;
 //var rect1 = {x: 5, y: 5, width: 50, height: 50}
 //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -207,17 +230,17 @@ var resetPlayer = function(){
 //   rect1.height + rect1.y > rect2.y) {
     // collision detected!
  // };
- for(e = 0; allEnemies[e] < allEnemies.length; e++) {
-   if(player.x < allEnemies[e].x + allEnemies[e].width &&
-     player.x + player.width > allEnemies[e].x &&
-     player.y < allEnemies[e].y + allEnemies[e].height &&
-     player.height + player.y > player.y > allEnemies[e].y){
-       player.x = 200;
-       player.y = 375;
-       return player;
-     };
-   };
-};
+// for(e = 0; allEnemies[e] < allEnemies.length; e++) {
+ //  if(player.x < allEnemies[e].x + allEnemies[e].width &&
+  //   player.x + player.width > allEnemies[e].x &&
+   //  player.y < allEnemies[e].y + allEnemies[e].height &&
+    // player.height + player.y > player.y > allEnemies[e].y){
+     //  player.x = 200;
+      // player.y = 375;
+       //return player;
+   //  };
+  // };
+//};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
