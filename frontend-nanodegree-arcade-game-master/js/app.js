@@ -54,7 +54,10 @@ Player.prototype.render =function() {
 Player.prototype.handleInput = function(key) {
   //console.log("handleInput");
   //console.log(key);
-    
+
+  //canvas.width = 505;
+  //canvas.height = 606;
+ if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
   switch (key) {
     case "left":
       this.x -= 101;
@@ -70,13 +73,131 @@ Player.prototype.handleInput = function(key) {
       break;
     default:
       console.log("Sorry, we are out of " + key + ".");
-  };
+  }
+ }
+ else if(this.x >= 303 && this.y >= 405) {
+   switch(key) {
+     case "left":
+       this.x -= 101;
+       break;
+     case "up":
+       this.y -= 83;
+       break;
+     case "right":
+       this.x += 0;
+       break;
+     case "down":
+       this.y += 0;
+       break;
+      default:
+        null;
+   }
+ }
+ else if(this.y >= 405) {
+   switch(key){
+     case "left":
+       this.x -= 101;
+       break;
+     case "up":
+       this.y -= 83;
+       break;
+     case "right":
+       this.x += 101;
+       break;
+     case "down":
+       this.y += 0;
+       break;
+     default:
+       null;
+
+   }
+ }
+ else if(this.x >= 303) {
+   switch(key){
+     case "left":
+       this.x -= 101;
+       break;
+     case "up":
+       this.y -= 83;
+       break;
+     case "right":
+       this.x += 0;
+       break;
+     case "down":
+       this.y += 83;
+       break;
+     default:
+       null;
+
+   }
+ }
+ else if(this.x <= -2 && this.y <= -10) {
+   switch(key){
+     case "left":
+       this.x -= 0;
+       break;
+     case "up":
+       this.y -= 0;
+       break;
+     case "right":
+       this.x += 101;
+       break;
+     case "down":
+       this.y += 83;
+       break;
+     default:
+       null;
+
+   }
+ }
+ else if(this.x <= -2) {
+   switch(key){
+     case "left":
+       this.x -= 0;
+       break;
+     case "up":
+       this.y -= 83;
+       break;
+     case "right":
+       this.x += 101;
+       break;
+     case "down":
+       this.y += 83;
+       break;
+     default:
+       null;
+
+   }
+ }
+ else if(this.y >= -10) {
+   switch(key){
+     case "left":
+       this.x -= 101;
+       break;
+     case "up":
+       this.y -= 0;
+       break;
+     case "right":
+       this.x += 101;
+       break;
+     case "down":
+       this.y += 83;
+       break;
+     default:
+       null;
+
+   };
+ };
 };
 
 // This class requires an update(), render() and
 // a handleInput() method.
 
 var resetPlayer = function(){
+  Player.height = 171;
+  Player.width = 101;
+  Enemy.height = 171;
+  Enemy.width = 101;
 //var rect1 = {x: 5, y: 5, width: 50, height: 50}
 //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -104,7 +225,7 @@ var resetPlayer = function(){
 //var enemy = new Enemy(0, 150, 100);  start at x = 0, y = 150, speed = 100
 var allEnemies = [new Enemy(0, 124.5, 100), new Enemy(0, 207.5, 100), new Enemy(0, 41.5, 50)];
 
-var player = new Player(200, 375);
+var player = new Player(200, 405);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
