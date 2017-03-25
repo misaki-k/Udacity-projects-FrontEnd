@@ -21,20 +21,20 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + this.speed * dt;
     //console.log(this);
     //collide function needed
-     Player.height = 171;
-     Player.width = 101;
-     Enemy.height = 171;
-     Enemy.width = 101;
-//var rect1 = {x: 5, y: 5, width: 50, height: 50}
-//var rect2 = {x: 20, y: 10, width: 10, height: 10}
+    Player.height = 171;
+    Player.width = 101;
+    Enemy.height = 171;
+    Enemy.width = 101;
+  //var rect1 = {x: 5, y: 5, width: 50, height: 50}
+  //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
-//if (rect1.x < rect2.x + rect2.width &&
-//   rect1.x + rect1.width > rect2.x &&
-//   rect1.y < rect2.y + rect2.height &&
-//   rect1.height + rect1.y > rect2.y) {
-    // collision detected!
- // };
-    for(e = 0; allEnemies[e] < allEnemies.length; e++) {
+  //if (rect1.x < rect2.x + rect2.width &&
+  //   rect1.x + rect1.width > rect2.x &&
+  //   rect1.y < rect2.y + rect2.height &&
+  //   rect1.height + rect1.y > rect2.y) {
+      // collision detected!
+   // };
+   for(e = 0; allEnemies[e] < allEnemies.length; e++) {
      if(player.x < allEnemies[e].x + allEnemies[e].width &&
        player.x + player.width > allEnemies[e].x &&
        player.y < allEnemies[e].y + allEnemies[e].height &&
@@ -42,8 +42,8 @@ Enemy.prototype.update = function(dt) {
          player.x = 200;
          player.y = 375;
          return player;
+       };
      };
-   };
 };
 
 // Draw the enemy on the screen, required method for game
@@ -80,7 +80,8 @@ Player.prototype.handleInput = function(key) {
 
   //canvas.width = 505;
   //canvas.height = 606;
- if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
+
+if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
   switch (key) {
     case "left":
       this.x -= 101;
@@ -98,7 +99,7 @@ Player.prototype.handleInput = function(key) {
       console.log("Sorry, we are out of " + key + ".");
   }
  }
- else if(this.x >= 303 && this.y >= 405) {
+ else if((this.x > -2 && this.x >= 303) && (this.y >= 405 && this.y > -10)) {
    switch(key) {
      case "left":
        this.x -= 101;
@@ -116,7 +117,26 @@ Player.prototype.handleInput = function(key) {
         null;
    }
  }
- else if(this.y >= 405) {
+ else if((this.x <= -2 && this.x < 303) && (this.y <= -10 && this.y < 405)) {
+   switch(key){
+     case "left":
+       this.x -= 0;
+       break;
+     case "up":
+       this.y -= 0;
+       break;
+     case "right":
+       this.x += 101;
+       break;
+     case "down":
+       this.y += 83;
+       break;
+     default:
+       null;
+
+   }
+ }
+ else if(this.y >= 405 && this.y > -10) {
    switch(key){
      case "left":
        this.x -= 101;
@@ -129,6 +149,25 @@ Player.prototype.handleInput = function(key) {
        break;
      case "down":
        this.y += 0;
+       break;
+     default:
+       null;
+
+   }
+ }
+ else if((this.x <= -2 && this.x < 303) && (this.y <= -10 && this.y < 405)) {
+   switch(key){
+     case "left":
+       this.x -= 0;
+       break;
+     case "up":
+       this.y -= 0;
+       break;
+     case "right":
+       this.x += 101;
+       break;
+     case "down":
+       this.y += 83;
        break;
      default:
        null;
@@ -154,25 +193,7 @@ Player.prototype.handleInput = function(key) {
 
    }
  }
- else if(this.x <= -2 && this.y <= -10) {
-   switch(key){
-     case "left":
-       this.x -= 0;
-       break;
-     case "up":
-       this.y -= 0;
-       break;
-     case "right":
-       this.x += 101;
-       break;
-     case "down":
-       this.y += 83;
-       break;
-     default:
-       null;
 
-   }
- }
  else if(this.x <= -2) {
    switch(key){
      case "left":
@@ -192,7 +213,7 @@ Player.prototype.handleInput = function(key) {
 
    }
  }
- else if(this.y >= -10) {
+ else if(this.y <= -10) {
    switch(key){
      case "left":
        this.x -= 101;
@@ -217,10 +238,10 @@ Player.prototype.handleInput = function(key) {
 // a handleInput() method.
 
 //var resetPlayer = function(){
- // Player.height = 171;
- // Player.width = 101;
- // Enemy.height = 171;
- // Enemy.width = 101;
+//  Player.height = 171;
+//  Player.width = 101;
+//  Enemy.height = 171;
+//  Enemy.width = 101;
 //var rect1 = {x: 5, y: 5, width: 50, height: 50}
 //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -231,15 +252,15 @@ Player.prototype.handleInput = function(key) {
     // collision detected!
  // };
 // for(e = 0; allEnemies[e] < allEnemies.length; e++) {
- //  if(player.x < allEnemies[e].x + allEnemies[e].width &&
-  //   player.x + player.width > allEnemies[e].x &&
-   //  player.y < allEnemies[e].y + allEnemies[e].height &&
-    // player.height + player.y > player.y > allEnemies[e].y){
-     //  player.x = 200;
-      // player.y = 375;
-       //return player;
-   //  };
-  // };
+//   if(player.x < allEnemies[e].x + allEnemies[e].width &&
+//     player.x + player.width > allEnemies[e].x &&
+//     player.y < allEnemies[e].y + allEnemies[e].height &&
+//     player.height + player.y > player.y > allEnemies[e].y){
+//       player.x = 200;
+//       player.y = 375;
+//       return player;
+//     };
+//   };
 //};
 
 // Now instantiate your objects.
