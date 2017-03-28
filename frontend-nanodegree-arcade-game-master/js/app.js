@@ -21,8 +21,8 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + this.speed * dt;
     //console.log(this);
     //collide function needed
-    this.height = 171;
-    this.width = 101;
+    this.height = 50;
+    this.width = 80;
   //var rect1 = {x: 5, y: 5, width: 50, height: 50}
   //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -32,16 +32,18 @@ Enemy.prototype.update = function(dt) {
   //   rect1.height + rect1.y > rect2.y) {
       // collision detected!
    // };
-   for(e = 0; allEnemies[e] < allEnemies.length; e++) {
-     if(player.x < allEnemies[e].x + allEnemies[e].width &&
-       player.x + player.width > allEnemies[e].x &&
-       player.y < allEnemies[e].y + allEnemies[e].height &&
-       player.height + player.y > player.y > allEnemies[e].y){
+
+     //console.log("for loop executed");
+     if(player.x < this.x + this.width &&
+       player.x + player.width > this.x &&
+       player.y < this.y + this.height &&
+       player.height + player.y > this.y){
          player.x = 200;
-         player.y = 375;
-         return player;
+         player.y = 405;
+         //return player;
+         //console.log("collision detected!!!");
        };
-     };
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -53,8 +55,6 @@ Enemy.prototype.render = function() {
 var Player = function(x, y) {
   this.x = x;
   this.y = y;
-  this.height = 171;
-  this.width = 101;
   //Enemy.call(this, x, y);
   //Player.prototype = Object.create(Enemy.prototype);
   //Player.prototype.constructor = Player;
@@ -63,6 +63,18 @@ var Player = function(x, y) {
 Player.prototype.update = function(dt) {
   //this.x = this.x;
   //this.y = this.y;
+  this.height = 50;
+  this.width = 50;
+  for(e = 0; e < allEnemies.length; e++) {
+    if(player.x < allEnemies[e].x + allEnemies[e].width &&
+      player.x + player.width > allEnemies[e].x &&
+      player.y < allEnemies[e].y + allEnemies[e].height &&
+      player.height + player.y > allEnemies[e].y){
+        player.x = 200;
+        player.y = 405;
+        //return player;
+      };
+    };
 };
 
 Player.prototype.render =function() {
