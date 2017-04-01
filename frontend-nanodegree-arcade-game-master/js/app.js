@@ -286,11 +286,11 @@ if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
 //var enemy = new Enemy(0, 150, 100);  start at x = 0, y = 150, speed = 100
 
 var firstEnemy = new Enemy(0, 144.5, 100);
-//firstEnemy = setInterval(firstEnemy, 10);
+//firstEnemy = setInterval(firstEnemy, 2000);
 var secondEnemy = new Enemy(0, 227.5, 100);
-//secondEnemy = setInterval(secondEnemy, 15);
+//secondEnemy = setInterval(secondEnemy, 3000);
 var thirdEnemy = new Enemy(0, 61.5, 50);
-//thirdEnemy = setInterval(thirdEnemy, 12);
+//thirdEnemy = setInterval(thirdEnemy, 5000);
 var allEnemies = [firstEnemy, secondEnemy, thirdEnemy];
 
 var player = new Player(200, 405);
