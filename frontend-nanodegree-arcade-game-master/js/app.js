@@ -65,13 +65,18 @@ Player.prototype.update = function(dt) {
   //this.y = this.y;
   this.height = 50;
   this.width = 50;
+
+//  if(player.y = -10){
+//    this.y = 200;
+//    this.x = 405;
+//}
   for(e = 0; e < allEnemies.length; e++) {
-    if(player.x < allEnemies[e].x + allEnemies[e].width &&
-      player.x + player.width > allEnemies[e].x &&
-      player.y < allEnemies[e].y + allEnemies[e].height &&
-      player.height + player.y > allEnemies[e].y){
-        player.x = 200;
-        player.y = 405;
+    if(this.x < allEnemies[e].x + allEnemies[e].width &&
+      this.x + this.width > allEnemies[e].x &&
+      this.y < allEnemies[e].y + allEnemies[e].height &&
+      this.height + this.y > allEnemies[e].y){
+        this.x = 200;
+        this.y = 405;
         //return player;
       };
     };
@@ -279,7 +284,14 @@ if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 //var enemy = new Enemy(0, 150, 100);  start at x = 0, y = 150, speed = 100
-var allEnemies = [new Enemy(0, 124.5, 100), new Enemy(0, 207.5, 100), new Enemy(0, 41.5, 50)];
+
+var firstEnemy = new Enemy(0, 144.5, 100);
+//firstEnemy = setInterval(firstEnemy, 10);
+var secondEnemy = new Enemy(0, 227.5, 100);
+//secondEnemy = setInterval(secondEnemy, 15);
+var thirdEnemy = new Enemy(0, 61.5, 50);
+//thirdEnemy = setInterval(thirdEnemy, 12);
+var allEnemies = [firstEnemy, secondEnemy, thirdEnemy];
 
 var player = new Player(200, 405);
 
