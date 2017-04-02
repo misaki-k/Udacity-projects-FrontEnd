@@ -44,9 +44,16 @@ Enemy.prototype.update = function(dt) {
          //return player;
          //console.log("collision detected!!!");
        };
-
 };
 
+
+//Enemy.prototype.resetPlayer = function() {
+//  if(player.y = -10){
+//      clearInterval(this.interval);
+//      player.y = 200;
+//      player.x = 405;
+//  };
+//} ;
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -284,11 +291,11 @@ if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
 
 Player.prototype.resetPlayer = function() {
   if(player.y = -10){
-      clearInterval(Enemy.prototype.update);
+      clearInterval(Enemy.interval);
       this.y = 200;
       this.x = 405;
   };
-} ;  
+} ;
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
