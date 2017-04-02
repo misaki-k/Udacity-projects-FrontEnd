@@ -281,6 +281,15 @@ if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
 //   };
 //};
 
+
+Player.prototype.resetPlayer = function() {
+  if(player.y = -10){
+      clearInterval(Enemy.prototype.update);
+      this.y = 200;
+      this.x = 405;
+  };
+} ;  
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
