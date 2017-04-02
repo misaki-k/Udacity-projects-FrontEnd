@@ -23,7 +23,8 @@ Enemy.prototype.update = function(dt) {
     //collide function needed
     this.height = 50;
     this.width = 80;
-    this.interval = setInterval(this, 5000);
+    this.reset();
+    //this.interval = setInterval(this, 5000);
   //var rect1 = {x: 5, y: 5, width: 50, height: 50}
   //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -39,11 +40,18 @@ Enemy.prototype.update = function(dt) {
        player.x + player.width > this.x &&
        player.y < this.y + this.height &&
        player.height + player.y > this.y){
-         player.x = 200;
-         player.y = 405;
+         player.reset();
+         //player.x = 200;
+         //player.y = 405;
          //return player;
          //console.log("collision detected!!!");
        };
+};
+
+Enemy.prototype.reset = function() {
+    if (this.x > ctx.canvas.width) {
+        this.x = -100;
+    }
 };
 
 
@@ -83,11 +91,18 @@ Player.prototype.update = function(dt) {
       this.x + this.width > allEnemies[e].x &&
       this.y < allEnemies[e].y + allEnemies[e].height &&
       this.height + this.y > allEnemies[e].y){
-        this.x = 200;
-        this.y = 405;
+        player.reset();
         //return player;
       };
     };
+  //this.reset();
+};
+
+Player.prototype.reset = function(){
+  if(this.y = -10){
+    this.x = 200;
+    this.y = 405;
+  }
 };
 
 Player.prototype.render =function() {
@@ -106,157 +121,26 @@ Player.prototype.handleInput = function(key) {
   //canvas.width = 505;
   //canvas.height = 606;
 
-if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
   switch (key) {
-    case "left":
-      this.x -= 101;
-      break;
-    case "up":
-      this.y -= 83;
-      break;
-    case "right":
-      this.x += 101;
-      break;
-    case "down":
-      this.y += 83;
-      break;
-    default:
-      console.log("Sorry, we are out of " + key + ".");
-  }
- }
- else if((this.x > -2 && this.x >= 303) && (this.y >= 405 && this.y > -10)) {
-   switch(key) {
      case "left":
-       this.x -= 101;
+       if (this.x - 101 >= -2)
+         this.x -= 101;
        break;
      case "up":
-       this.y -= 83;
+       if (this.y - 83 >= -10)
+         this.y -= 83;
        break;
      case "right":
-       this.x += 0;
-       break;
-     case "down":
-       this.y += 0;
-       break;
-      default:
-        null;
-   }
- }
- else if((this.x <= -2 && this.x < 303) && (this.y <= -10 && this.y < 405)) {
-   switch(key){
-     case "left":
-       this.x -= 0;
-       break;
-     case "up":
-       this.y -= 0;
-       break;
-     case "right":
+       if(this.x + 101 <= 402)
        this.x += 101;
        break;
      case "down":
-       this.y += 83;
+       if (this.y + 83 <= 405)
+         this.y += 83;
        break;
      default:
-       null;
-
-   }
- }
- else if(this.y >= 405 && this.y > -10) {
-   switch(key){
-     case "left":
-       this.x -= 101;
-       break;
-     case "up":
-       this.y -= 83;
-       break;
-     case "right":
-       this.x += 101;
-       break;
-     case "down":
-       this.y += 0;
-       break;
-     default:
-       null;
-
-   }
- }
- else if((this.x <= -2 && this.x < 303) && (this.y <= -10 && this.y < 405)) {
-   switch(key){
-     case "left":
-       this.x -= 0;
-       break;
-     case "up":
-       this.y -= 0;
-       break;
-     case "right":
-       this.x += 101;
-       break;
-     case "down":
-       this.y += 83;
-       break;
-     default:
-       null;
-
-   }
- }
- else if(this.x >= 303) {
-   switch(key){
-     case "left":
-       this.x -= 101;
-       break;
-     case "up":
-       this.y -= 83;
-       break;
-     case "right":
-       this.x += 0;
-       break;
-     case "down":
-       this.y += 83;
-       break;
-     default:
-       null;
-
-   }
- }
-
- else if(this.x <= -2) {
-   switch(key){
-     case "left":
-       this.x -= 0;
-       break;
-     case "up":
-       this.y -= 83;
-       break;
-     case "right":
-       this.x += 101;
-       break;
-     case "down":
-       this.y += 83;
-       break;
-     default:
-       null;
-
-   }
- }
- else if(this.y <= -10) {
-   switch(key){
-     case "left":
-       this.x -= 101;
-       break;
-     case "up":
-       this.y -= 0;
-       break;
-     case "right":
-       this.x += 101;
-       break;
-     case "down":
-       this.y += 83;
-       break;
-     default:
-       null;
-
+       console.log("Sorry, we are out of " + key + ".");
    };
- };
 };
 
 // This class requires an update(), render() and
@@ -289,13 +173,13 @@ if ((this.x > -2 && this.x < 303) && (this.y < 405 && this.y > -10)){
 //};
 
 
-Player.prototype.resetPlayer = function() {
-  if(player.y = -10){
-      clearInterval(Enemy.interval);
-      this.y = 200;
-      this.x = 405;
-  };
-} ;
+//Player.prototype.resetPlayer = function() {
+//  if(player.y = -10){
+//      clearInterval(Enemy.interval);
+//      this.y = 200;
+//      this.x = 405;
+//  };
+//};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -306,11 +190,21 @@ var firstEnemy = new Enemy(0, 144.5, 100);
 //firstEnemy = setInterval(firstEnemy, 2000);
 var secondEnemy = new Enemy(0, 227.5, 100);
 //secondEnemy = setInterval(secondEnemy, 3000);
-var thirdEnemy = new Enemy(0, 61.5, 50);
+var thirdEnemy = new Enemy(0, 61.5, 90);
 //thirdEnemy = setInterval(thirdEnemy, 5000);
-var allEnemies = [firstEnemy, secondEnemy, thirdEnemy];
+
+
+var allEnemies = [];
 
 var player = new Player(200, 405);
+
+
+allEnemies.push(firstEnemy, secondEnemy, thirdEnemy);
+/*if(thirdEnemy.x > 505){
+  allEnemies = 0;
+  allEnemies.push(firstEnemy, secondEnemy, thirdEnemy);
+};*/
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -324,3 +218,4 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
