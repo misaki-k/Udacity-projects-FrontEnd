@@ -4,6 +4,7 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Neighborhood Map</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
    <script type="text/javascript" src="js/knockout-3.2.0.js"></script>
    <link rel="stylesheet" href="css/style.css">
    <script type="text/javascript">
@@ -26,8 +27,7 @@
           <input id="zoom-to-area" type="button" value="Search">
         </div>
 		<ul data-bind="foreach: filteredItems">
-			<!--Deleted click: openInfo()-->
-			<li data-bind="text: title"></li>
+			<li data-bind="text: title, click: $root.openInfo"></li>
 		</ul>
       </div>
 	  </div>
@@ -36,7 +36,7 @@
 	<script type="text/javascript" src="js/function.js"></script>
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=YORAPIKEY&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?libraries=geometry,places&key=YOURKEY&callback=initMap">
     </script>
   </body>
 </html>
