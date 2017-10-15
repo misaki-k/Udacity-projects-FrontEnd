@@ -89,8 +89,8 @@ function MyViewModel() {
     var base_url = "https://api.foursquare.com/v2/venues/";
 	var venue_id = foursquare;
 	var v = "&v=20170801";
-	var client_Id = "TUMEFFUD0O4XKFUR1GCUCHX5ZZG5NRICRGF4BKEHHU12E1LE";
-	var client_Secret = "13HO0VXLAZ2B4PK0KGJBLBYXOBSP1BGZTT3RSXVIIZ3ZYH4R";
+	var client_Id = client_Id;
+	var client_Secret = client_Secret;
     //var lat = self.locations().location.lat;
     //var lng = self.locations().location.lng;
 
